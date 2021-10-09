@@ -8,13 +8,13 @@ public class MakeChange {
 		double itemPrice = keyboard.nextDouble();
 		System.out.println("How much money was tendered from the customer?");
 		double tenderedAmt = keyboard.nextDouble();
-        double customerChange = (tenderedAmt - itemPrice)+.001;
+        int customerChangeInt = (int) ((tenderedAmt * 100) - (itemPrice * 100));
 		
 		
 
 
 		if (tenderedAmt > itemPrice) {
-			System.out.println("Opening Register. Change will be:" + customerChange);
+			System.out.println("Opening Register. Change will be:" + (tenderedAmt - itemPrice));
 			
 			printReceipt();
 		}
@@ -30,7 +30,7 @@ public class MakeChange {
 			
 		}
 		
-			int customerChangeInt = (int) (customerChange * 100);
+			//int customerChangeInt = (int) (customerChange * 100);
 		
 			
 		//System.out.println(customerChangeInt); 
@@ -86,10 +86,10 @@ public class MakeChange {
 				System.out.println("Nickel Count: " + nickelCount);
 				customerChangeInt = customerChangeInt - (5 * nickelCount);	
 			}
-			if(customerChangeInt> 1)
+			if(customerChangeInt >= 1)
 			{
 				int pennyCount = 0;
-				pennyCount = (int)(customerChangeInt / 1 );
+				pennyCount = (customerChangeInt / 1 );
 				System.out.println("Penny Count: " + pennyCount);
 				customerChangeInt = customerChangeInt - (1 * pennyCount);	
 			}
